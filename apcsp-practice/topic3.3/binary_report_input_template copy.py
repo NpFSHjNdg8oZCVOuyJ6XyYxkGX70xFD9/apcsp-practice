@@ -14,14 +14,29 @@ selected_label = labels[selected_index]
 print("You entered:", clock_value)
 
 if (clock_value >= 0) and (clock_value <= 63):
-    print("Your value is in range")
+    remaining=clock_value 
+    bit_1=remaining %2
+    remaining=remaining//2
+    bit_2=remaining %2
+    remaining=remaining//2
+    bit_4=remaining %2
+    remaining=remaining//2
+    bit_8=remaining %2
+    remaining=remaining//2
+    bit_16=remaining %2
+    remaining=remaining//2
+    bit_32=remaining %2
+    remaining=remaining//2
+    bits=[bit_32,bit_16,bit_8,bit_4,bit_2,bit_1]
+    print("Your value is within the range " + str(bits))
+
+    if clock_value % 2 == 0:
+        print("Your value is an even number")
+    else:
+        print("Your value is not an even number")
 else:
     print("Your value is not within the range")
 
-if clock_value % 2 == 0:
-    print("Your value is an even number")
-else: 
-    print("Your value is not an even number")
 
 # YOUR CODE START
 # 1. Add a range decision for whole numbers from 0 through 63.
