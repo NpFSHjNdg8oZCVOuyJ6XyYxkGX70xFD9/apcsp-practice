@@ -1,24 +1,24 @@
-clock_values=[13,42]
-labels=["Hours","Minutes"]
+clock_values = [13, 42]
+labels = ["Hours","Minutes"]
 clock_values.append(17)
 labels.append("Seconds")
-selected_index=2 # using the same index keeps the value and label together so its easier to add more
-clock_value=clock_values[selected_index]
-label=labels[selected_index]
+selected_index = 2 # using the same index keeps the value and label together so its easier to add more
+clock_value = clock_values[selected_index]
+label = labels[selected_index]
 
 remaining = clock_value
-bit_1=remaining %2
-remaining=remaining//2
-bit_2=remaining %2
-remaining=remaining//2
-bit_4=remaining %2
-remaining=remaining//2
-bit_8=remaining %2
-remaining=remaining//2
-bit_16=remaining %2
-remaining=remaining//2
-bit_32=remaining %2
-remaining=remaining//2
+bit_1 = remaining % 2
+remaining = remaining // 2
+bit_2 = remaining % 2
+remaining = remaining // 2
+bit_4 = remaining % 2
+remaining = remaining// 2
+bit_8 = remaining % 2
+remaining = remaining //2
+bit_16 = remaining % 2
+remaining = remaining// 2
+bit_32 = remaining % 2
+remaining = remaining// 2
 
 bits=[bit_32,bit_16,bit_8,bit_4,bit_2,bit_1]
 bit_text = str(bits[0]) + str(bits[1]) + str(bits[2]) + str(bits[3]) + str(bits[4]) + str(bits[5])
