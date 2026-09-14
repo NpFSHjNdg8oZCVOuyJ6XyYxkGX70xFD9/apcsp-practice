@@ -29,6 +29,7 @@ if (clock_value >= 0) and (clock_value <= 63):
     remaining=remaining//2
     bits=[bit_32,bit_16,bit_8,bit_4,bit_2,bit_1]
     print("Your value is within the range " + str(bits))
+    print(selected_label + ": " + str(bits))
 
     if clock_value % 2 == 0:
         print("Your value is an even number")
@@ -45,8 +46,3 @@ else:
 # 3. Inside that branch, add an even/odd decision using the remainder.
 # 4. In the invalid branch, print only the invalid message after the input echo.
 # YOUR CODE END
-
-# OUTPUT PATTERNS: move/uncomment these only in the appropriate branches.
-# print(selected_label + ": " + bit_text)
-# print("Even")  # or print("Odd")
-# print("Outside six-bit range")
