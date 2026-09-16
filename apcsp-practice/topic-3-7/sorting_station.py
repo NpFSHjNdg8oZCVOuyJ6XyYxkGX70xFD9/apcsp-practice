@@ -23,3 +23,5 @@ elif shape == "CUBE":
 
 else:
     destination = "E"
+
+print(label, "Sent to group", destination)
