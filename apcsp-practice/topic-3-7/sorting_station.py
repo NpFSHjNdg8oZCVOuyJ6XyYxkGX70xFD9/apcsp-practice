@@ -10,10 +10,10 @@ if condition == "D" or size > 50 or weight > 2000:
     destination = "INSPECT"
 
 elif color == "RED" and shape == "BALL" and size > 10:
-    destination = "A"
+    destination = "B"
 
 elif shape == "BALL":
-    destination = "B"
+    destination = "A"
 
 elif shape == "CUBE" and (color == "BLU" or color == "GRN") and size <= 10:
     destination = "C"
