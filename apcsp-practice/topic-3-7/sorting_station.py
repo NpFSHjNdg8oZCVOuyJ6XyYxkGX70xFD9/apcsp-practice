@@ -7,19 +7,19 @@ weight = int(label[10:14])
 condition = label[14]
 
 if condition == "D" or size > 50 or weight > 2000: 
-    print(label, "Sent to INSPECT group")
+    destination = "INSPECT"
 
 elif color == "RED" and shape == "BALL" and size > 10:
-    print(label, "Sent to group B")
+    destination = "A"
 
 elif shape == "BALL":
-    print(label, "Sent to group A")
+    destination = "B"
 
 elif shape == "CUBE" and (color == "BLU" or color == "GRN") and size <= 10:
-    print(label, "Sent to group C")
+    destination = "C"
 
 elif shape == "CUBE":
-    print(label, "Sent to group D")
+    destination = "D"
 
 else:
-    print(label, "Sent to group E")
+    destination = "E"
