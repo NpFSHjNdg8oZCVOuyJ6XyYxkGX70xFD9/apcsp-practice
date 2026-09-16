@@ -15,7 +15,7 @@ elif color == "RED" and shape == "BALL" and size >= 10:
 elif shape == "BALL":
     print(label, "Sent to group A")
 
-elif shape == "CUBE" and (color == "BLU" or color == "GRN") and size <= 10:
+elif shape == "CUBE" and (color == "BLU" or color == "GRN") and size > 10:
     print(label, "Sent to group C")
 
 elif shape == "CUBE":
