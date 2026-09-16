@@ -1,4 +1,8 @@
 label = input("Input label: ") #BALLRED0120050N
 
-if label[7:10] == "050" or label[15:15] =="N" or label[12:14] == "2000":
-    print(label[7:10])
+shape = label[0:4]
+color = label[4:7]
+size = int(label[7:10])
+weight = int(label[10:14])
+ending = label[14]
+
