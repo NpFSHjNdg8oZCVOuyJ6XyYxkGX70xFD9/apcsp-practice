@@ -18,5 +18,8 @@ elif shape == "BALL":
 elif shape == "CUBE" and (color == "BLU" or "GRN") and size <= 10:
     print(label, "Sent to group C")
 
+elif shape == "CUBE":
+    print(label, "Sent to group D")
+
 else:
-    print("Invalid label")
+    print(label, "Sent to group E")
