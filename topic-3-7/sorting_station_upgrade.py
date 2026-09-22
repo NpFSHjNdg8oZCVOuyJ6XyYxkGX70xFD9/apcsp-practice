@@ -45,3 +45,4 @@ else:
             packaging = "BOX"
         
 print(destination)
+print(packaging)
