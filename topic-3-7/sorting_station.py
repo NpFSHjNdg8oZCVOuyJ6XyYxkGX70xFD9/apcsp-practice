@@ -6,42 +6,22 @@ size = int(label[7:10])
 weight = int(label[10:14])
 condition = label[14]
 
-if condition == "D":
-    destination = "INSPECT"
+if condition =="D" or size >50 or weight >2000:
+    destination ="INSPECT"
 
 else:
-    if shape == "CUBE":
-        if size > 60 or weight > 2500:
-            destination = "INSPECT"
-
-        else:
-            if (color == "BLUE" or color == "GRN") and size <= 10:
-                destination = "C"
-            else:
-                destination = "D"
+    if shape =="BALL":
+        if color == "RED" and size > 10:
+            destination = "B"
+        else: destination = "A"
 
     else:
-        if size > 50 or weight >2000:
-            destination = "INSPECT"
-        else:
-            if shape == "BALL":
-                if color == "RED" and size > 10:
-                    destination ="B"
-                else: 
-                    destination = "A"
+        if shape=="CUBE":
+            if (color =="BLU" or color =="GRN") and size <= 10:
+                destination ="C"
             else:
-                destination = "E"
-
-if destination =="INSPECT":
-    packaging = "HOLD"
-
-else:
-    if shape =="CONE" or weight > 1000:
-        packaging ="CRATE"
-    else:
-        if shape == "BALL":
-            packaging = "PADDED"
+                destination ="D"
         else:
-            packaging = "BOX"
-        
+            destination ="E"
+            
 print(destination)
