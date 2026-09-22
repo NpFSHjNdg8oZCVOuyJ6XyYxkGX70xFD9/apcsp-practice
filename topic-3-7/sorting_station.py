@@ -6,22 +6,42 @@ size = int(label[7:10])
 weight = int(label[10:14])
 condition = label[14]
 
-if condition == "D" or size > 50 or weight > 2000: 
+if condition == "D":
     destination = "INSPECT"
 
-elif color == "RED" and shape == "BALL" and size > 10:
-    destination = "B"
+else:
+    if shape == "CUBE":
+        if size > 60 or weight > 2500:
+            destination = "INSPECT"
 
-elif shape == "BALL":
-    destination = "A"
+        else:
+            if (color == "BLUE" or color == "GRN") and size <= 10:
+                destination = "C"
+            else:
+                destination = "D"
 
-elif shape == "CUBE" and (color == "BLU" or color == "GRN") and size <= 10:
-    destination = "C"
+    else:
+        if size > 50 or weight >2000:
+            destination = "INSPECT"
+        else:
+            if shape == "BALL":
+                if color == "RED" and size > 10:
+                    destination ="B"
+                else: 
+                    destination = "A"
+            else:
+                destination = "E"
 
-elif shape == "CUBE":
-    destination = "D"
+if destination =="INSPECT":
+    packaging = "HOLD"
 
 else:
-    destination = "E"
-
+    if shape =="CONE" or weight > 1000:
+        packaging ="CRATE"
+    else:
+        if shape == "BALL":
+            packaging = "PADDED"
+        else:
+            packaging = "BOX"
+        
 print(destination)
