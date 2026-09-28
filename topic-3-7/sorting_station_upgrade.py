@@ -15,7 +15,7 @@ else:
             destination = "INSPECT"
 
         else:
-            if (color == "BLUE" or color == "GRN") and size <= 10:
+            if (color == "BLU" or color == "GRN") and size <= 10:
                 destination = "C"
             else:
                 destination = "D"
