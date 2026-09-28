@@ -1,4 +1,4 @@
-label = input("Input label: ") #BALLRED0120050N
+label = input() #BALLRED0120050N
 
 shape = label[0:4]
 color = label[4:7]
