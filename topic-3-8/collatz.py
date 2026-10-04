@@ -1,9 +1,17 @@
 integer = int(input())
 steps = 0
-integerarray = []
+integerarray = [integer]
 
 
-while integer != 1:
+while True:
+
+    if integer == 1:
+        break
+    if steps >= 1000:
+        break
+    if integer > 1000000:
+        break 
+
     if integer % 2 == 0:
         integer = integer // 2
     else:
@@ -12,12 +20,12 @@ while integer != 1:
     steps = steps + 1
     integerarray.append(integer)
 
-    if integer > 1000000:
-        break
-    if steps > 1000:
-        break
-
-
-print("steps: " , steps)
-print(integer)
+print(integerarray)
+print(steps)
 print(max(integerarray))
+print(integer)
+      
+if integer == 1:
+    print("REACHED 1")
+else:
+    print("LIMIT REACHED")
