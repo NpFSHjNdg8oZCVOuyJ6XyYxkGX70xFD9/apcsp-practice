@@ -6,11 +6,15 @@ gainList = []
 lossList = []
 netChange = 0
 
-gain = [random.randint(200,400) for i in range(matchWon)]
-loss = [random.randint(-400,-200) for i in range(matchLost)]
+for i in range(matchWon):
+    gain = random.randint(200,400)
+    gainList.append(gain)
+    netChange += gain
 
-netChange += sum(gain)
-netChange += sum(loss)
+for i in range(matchLost):
+    loss = random.randint(-400,-200)
+    lossList.append(loss)
+    netChange += loss
 
 gainAvg = sum(gain) / matchWon
 lossAvg = sum(loss) / matchLost
