@@ -22,6 +22,11 @@ if matchWon > 0 and matchLost > 0:
 
     if matchLost > 0:
         lossAvg = sum(lossList) / matchLost
+
+    print("Average rating gained: ", gainAvg)
+    print("Average rating lost: ", lossAvg)
+    print("Net rating change: ", netChange)
+    
 else:
     print("Invalid input(s) (", matchWon, ",", matchLost, ")")
 
