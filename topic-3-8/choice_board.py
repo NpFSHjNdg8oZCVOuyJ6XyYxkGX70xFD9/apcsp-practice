@@ -16,8 +16,8 @@ if matchWon >= 0 and matchLost >= 0:
         lossList.append(loss)
         netChange += loss
 
-    gainAvg = sum(gainList) / matchWon
-    lossAvg = sum(lossList) / matchLost
+    gainAvg = sum(gainList) / matchWon if matchWon > 0 else 0
+    lossAvg = sum(lossList) / matchLost if matchLost > 0 else 0
 
     print("Average rating gained: ", gainAvg)
     print("Average rating lost: ", lossAvg)
