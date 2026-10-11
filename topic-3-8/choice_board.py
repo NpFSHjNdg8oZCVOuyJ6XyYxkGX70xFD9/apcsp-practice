@@ -1,12 +1,11 @@
 import random
 matchWon = int(input("Matches won: "))
 matchLost = int(input("Matches lost: "))
-netList = []
 gainList = []
 lossList = []
 netChange = 0
 
-if matchWon > 0 and matchLost > 0:
+if matchWon >= 0 and matchLost >= 0:
     for i in range(matchWon):
         gain = random.randint(200,400)
         gainList.append(gain)
@@ -17,16 +16,13 @@ if matchWon > 0 and matchLost > 0:
         lossList.append(loss)
         netChange += loss
 
-    if matchWon > 0:
-        gainAvg = sum(gainList) / matchWon
-
-    if matchLost > 0:
-        lossAvg = sum(lossList) / matchLost
+    gainAvg = sum(gainList) / matchWon
+    lossAvg = sum(lossList) / matchLost
 
     print("Average rating gained: ", gainAvg)
     print("Average rating lost: ", lossAvg)
     print("Net rating change: ", netChange)
-    
+
 else:
     print("Invalid input(s) (", matchWon, ",", matchLost, ")")
 
