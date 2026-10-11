@@ -6,16 +6,23 @@ gainList = []
 lossList = []
 netChange = 0
 
-for i in range(matchWon):
-    gain = random.randint(200,400)
-    gainList.append(gain)
-    netChange += gain
+if matchWon > 0 and matchLost > 0:
+    for i in range(matchWon):
+        gain = random.randint(200,400)
+        gainList.append(gain)
+        netChange += gain
 
-for i in range(matchLost):
-    loss = random.randint(-400,-200)
-    lossList.append(loss)
-    netChange += loss
+    for i in range(matchLost):
+        loss = random.randint(-400,-200)
+        lossList.append(loss)
+        netChange += loss
 
-gainAvg = sum(gain) / matchWon
-lossAvg = sum(loss) / matchLost
+    if matchWon > 0:
+        gainAvg = sum(gainList) / matchWon
+
+    if matchLost > 0:
+        lossAvg = sum(lossList) / matchLost
+else:
+    print("Invalid input(s) (", matchWon, ",", matchLost, ")")
+
 
