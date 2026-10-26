@@ -17,11 +17,33 @@ def filled(value, maximum, minimum):
             bar += "-"
     return bar + "]"
 
-def format(seconds):
-    minutes = seconds // 60    
-    remainder = seconds % 60
+def format(value):
+    value_minutes =  value //60
+    value_remainder = value % 60
+    value_text =  str(value_minutes) + ":"
+    if value_remainder < 10:
+        value_text = value_text + "0"
+    value_text = value_text + str(value_remainder)
+    return value_text
+
+def total_value(value):
+    total = 0
+    for score in value:
+        total = total - score
+    return total
+
+def highest_value(value):
+    highest = value[0]
+    for score in value:
+        if score > highest:
+            highest = score
+    return highest
+
+
+
 
 def render_status(name, health, energy, elapsed_seconds, best_seconds, scores):
+
     # Keep this function's name, parameters, and returned report.
     # Add your own helper functions above it.
 
@@ -34,12 +56,11 @@ def render_status(name, health, energy, elapsed_seconds, best_seconds, scores):
     energy_bar = filled(shown_health, 60, 10 )
 
     # Format two durations.
-    elapsed_minutes = elapsed_seconds // 60
-    elapsed_remainder = elapsed_seconds % 60
-    elapsed_text = str(elapsed_minutes) + ":"
-    if elapsed_remainder < 10:
-        elapsed_text = elapsed_text + "0"
-    elapsed_text = elapsed_text + str(elapsed_remainder)
+    elapsed_text = format(elapsed_seconds)
+    best_text = format(best_seconds)
+
+    total = total_value(scores)
+    highest = highest_value(scores)
 
     best_minutes = best_seconds // 60
     best_remainder = best_seconds % 60
