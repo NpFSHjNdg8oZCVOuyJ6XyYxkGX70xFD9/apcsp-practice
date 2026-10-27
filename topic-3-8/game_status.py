@@ -10,7 +10,7 @@ def clamp(value, minimum, maximum):
 def filled(value, maximum, minimum):
     filled = value * 10 // maximum
     bar = "["
-    for position in range(10):
+    for position in range(minimum):
         if position < filled:
             bar += "#"
         else:
@@ -29,7 +29,7 @@ def format(value):
 def total_value(value):
     total = 0
     for score in value:
-        total = total - score
+        total = total + score
     return total
 
 def highest_value(value):
@@ -39,7 +39,21 @@ def highest_value(value):
             highest = score
     return highest
 
+def strong_count(value):
+    count = 0
+    for score in value:
+        if score >= 80:
+            count += 1
+    return count
 
+def get_level(total):
+    if total <  100:
+        level = "Rookie"
+    elif total < 250:
+        level = "Skilled"
+    else:
+        level = "Expert"
+    return level
 
 
 def render_status(name, health, energy, elapsed_seconds, best_seconds, scores):
@@ -53,7 +67,7 @@ def render_status(name, health, energy, elapsed_seconds, best_seconds, scores):
     # Build two bars. // keeps the whole-number part of the division.
     
     health_bar = filled(shown_health, 100, 10 )
-    energy_bar = filled(shown_health, 60, 10 )
+    energy_bar = filled(shown_energy, 60, 10 )
 
     # Format two durations.
     elapsed_text = format(elapsed_seconds)
@@ -62,35 +76,15 @@ def render_status(name, health, energy, elapsed_seconds, best_seconds, scores):
     total = total_value(scores)
     highest = highest_value(scores)
 
-    best_minutes = best_seconds // 60
-    best_remainder = best_seconds % 60
-    best_text = str(best_minutes) + ":"
-    if best_remainder < 10:
-        best_text = best_text + "0"
-    best_text = best_text + str(best_remainder)
+    elapsed_text =  format(elapsed_seconds)
+    best_text  = format(best_seconds)
 
     # Summarize the recent scores.
-    total = 0
-    for score in scores:
-        total = total + score
+    total = total_value(scores)
+    highest = highest_value(scores)
+    strong = strong_count(scores)
 
-    highest = scores[0]
-    for score in scores:
-        if score > highest:
-            highest = score
-
-    strong_count = 0
-    for score in scores:
-        if score >= 80:
-            strong_count = strong_count + 1
-
-    # Choose a level from the total.
-    if total < 100:
-        level = "Rookie"
-    elif total < 250:
-        level = "Skilled"
-    else:
-        level = "Expert"
+    level = get_level(total)
 
     # Return one report. \n separates its lines; there is no final \n.
     report = "PLAYER: " + name
