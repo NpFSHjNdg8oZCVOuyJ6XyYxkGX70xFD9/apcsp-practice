@@ -17,7 +17,7 @@ def filled(value, maximum, minimum):
             bar += "-"
     return bar + "]"
 
-def format(value):
+def format_time(value):
     value_minutes =  value //60
     value_remainder = value % 60
     value_text =  str(value_minutes) + ":"
@@ -70,14 +70,8 @@ def render_status(name, health, energy, elapsed_seconds, best_seconds, scores):
     energy_bar = filled(shown_energy, 60, 10 )
 
     # Format two durations.
-    elapsed_text = format(elapsed_seconds)
-    best_text = format(best_seconds)
-
-    total = total_value(scores)
-    highest = highest_value(scores)
-
-    elapsed_text =  format(elapsed_seconds)
-    best_text  = format(best_seconds)
+    elapsed_text = format_time(elapsed_seconds)
+    best_text = format_time(best_seconds)
 
     # Summarize the recent scores.
     total = total_value(scores)
@@ -94,7 +88,7 @@ def render_status(name, health, energy, elapsed_seconds, best_seconds, scores):
     report = report + "\nTime:   " + elapsed_text
     report = report + "\nBest:   " + best_text
     report = report + "\nRecent: total=" + str(total)
-    report = report + ", best=" + str(highest) + ", 80+=" + str(strong_count)
+    report += ", best=" + str(highest) + ", 80+=" + str(strong)
     return report
 
 
